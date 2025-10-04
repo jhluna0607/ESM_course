@@ -20,7 +20,7 @@ Because the temperature variable is 3D (lev, lat, lon), which is very large. Ple
 * "lev_c" (55) is the center location of the vertical grid, while "lev_f" (56) is the surface (interfaces) location of it. Use lev_f to calculate the grid depth.
 ### POP (yiwen89419)
 * "B1850_TAI.pop.h.once.nc" might be useful for calculating the weighted mean.
-* "TAREA" is the grid area, while "dz" is the grid depth.
+* "TAREA" is the grid area, while "dz" is the grid thickness.
 * Because of the irregular grid, you might need to use "griddata" instead of "interp2d" for regridding, and "pcolormesh" instead of "contourf" for plotting.
 
 ## diag_ice.py
