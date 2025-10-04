@@ -6,7 +6,7 @@ Please don't just copy and paste my code, since you still have to do the final p
 ## diag_atm.py
 For the atmosphere data, you have to plot the surface air temperature (SAT) and precipitation (PREC).
 ### SAT
-* "TREFHT" and "TS" are the temperature at reference height (2m) and on the sea surface, respectively. Both are okay for the HW.
+* "TREFHT" and "TS" are the temperature at reference height (2m) and on the sea surface, respectively. Both are acceptable.
 * Calculating anomaly is optional. If you plot the observation without subtracting its climatology, you might see something interesting around 1950 !(^^)!
 ### PREC 
 * Sum of "PRECC" (convective) and "PRECL" (large-scale).
