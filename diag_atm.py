@@ -203,7 +203,7 @@ SAT_climo_map = climo_map(SAT, climo_year)          # (lat, lon)
 PREC_climo_map = climo_map(PREC, climo_year)
 
 # Global mean SATa time series 
-_, SATa = anomaly(SAT)                              # (time,lat,lon)
+_, SATa = anomaly(SAT, climo_year)                  # (time,lat,lon)
 SAT_mon_ts = weighted_mean(SATa)
 SAT_yr_ts = SAT_mon_ts.resample(time='1YE').mean()
 del PREC,SAT,SATa
