@@ -28,5 +28,5 @@ For the sea ice data, you need to read the sea ice concentration (SIC) "aice" an
 * Please pay attention to their units!
 * SIA is defined as the area where the SIC is over 15%.
 * "tarea" or "AREA" is the grid area for calculating SIA.
-* There are some missing data in some datasets around the north pole. Please fill it back when calculating the sea ice area.
+* There are some missing data in some datasets around the North Pole. Please fill it back when calculating the sea ice area.
 * For students who read yiwen89419's, because the coordinate contains NaN, you might need to use "tripcolor" with "Triangulation".
