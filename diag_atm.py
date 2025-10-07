@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 # =========================
 #      USER SETTINGS      
 # -------------------------
-model = 'TaiESM-TIMCOM'      # TaiESM (yiwen) or TaiESM-TIMCOM (yhtseng)
+model = 'TaiESM'             # TaiESM (yiwen) or TaiESM-TIMCOM (yhtseng)
 climo_year = [1980, 1999]    # Climatological time period
 # =========================
 
@@ -53,7 +53,6 @@ def read_best(fnm):
 
 # READ GPCP PREC observation
 def read_gpcp(fnm):
-    fnm = root + 'gpcp.mon.mean.197901-201904.nc'
     ds = xr.open_dataset(fnm, engine='netcdf4')
     return ds
 
@@ -79,6 +78,16 @@ def convert_time(dsnm, ds):
             mn = [int(t[4:6]) for t in time]
             time = [pd.Timestamp(year=y, month=m, day=1) for y, m in zip(yr, mn)]
             ds['time'] = time
+
+        # For TaiESM:
+        case 'TaiESM':
+            raw_time = ds['time'].values[0]
+            y = raw_time.year + 1849
+            m = raw_time.month - 1
+            if m == 0:
+                m, y = 12, y-1
+            time = pd.Timestamp(y, m, 1)
+            ds['time'] = [time]
     return ds
 
 # CONVERT longitude coordinate from (-180,180) to (0,360)
@@ -203,7 +212,7 @@ SAT_climo_map = climo_map(SAT, climo_year)          # (lat, lon)
 PREC_climo_map = climo_map(PREC, climo_year)
 
 # Global mean SATa time series 
-_, SATa = anomaly(SAT, climo_year)                  # (time,lat,lon)
+_, SATa = anomaly(SAT, climo_year)                              # (time,lat,lon)
 SAT_mon_ts = weighted_mean(SATa)
 SAT_yr_ts = SAT_mon_ts.resample(time='1YE').mean()
 del PREC,SAT,SATa
