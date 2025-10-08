@@ -1,7 +1,6 @@
 # Homework #1
 Here are my scripts and plots for HW1. No need to create any files before running my Python code (-ω-)/  
 Please don't just copy and paste my code, since you still have to do the final project on your own (; ･`д･´)  
-(P.S. We're still recovering the yiwen89419's atmosphere data currently... I'll update once the files are back ( ;∀;))
 
 ## diag_atm.py
 For the atmosphere data, you have to plot the surface air temperature (SAT) and precipitation (PREC).
